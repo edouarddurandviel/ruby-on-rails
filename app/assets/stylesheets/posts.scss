@@ -1,0 +1,14 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$margin-top: 51px;
+$boder: 1px solid rgb(193, 193, 193);
+
+body{
+  margin-top: $margin-top;
+}
+
+.white-bordered{
+  border: $boder;
+}

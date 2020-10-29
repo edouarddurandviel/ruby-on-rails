@@ -1,0 +1,37 @@
+%h1 Ma Liste de photographies
+= upFormat(std_name)
+
+%em
+  = joinObjects("edouard", upFormat(std_name))
+
+- @anyPost
+  %div{:class => "main-summary", :id => "main"}<
+    %div.s-post
+      %h1 First post image
+      = image_tag @firstpost.image.url(:medium)
+  
+    %div{:class => "s-post"}
+      %h1 Firstone Ordered by description
+      = image_tag @descriptionPost.image.url(:medium)
+    
+    %div.s-post
+      - unless @createat.nil?
+        %div#id
+          %em for then take
+          = image_tag @createat.image.url(:medium)
+
+    %div.s-post
+      %h1 SQL from id 6
+      - @Descfromsqlconnection.each do |row|
+        %p
+          = row['description']
+          
+  - if @post
+    %div.main-summary
+      %h1 All posts
+      = cache [current_user, @post, @color] do
+        = render 'items/post_items'   
+  - else
+    %div.white-bordered
+      %p empty
+

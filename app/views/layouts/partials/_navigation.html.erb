@@ -1,0 +1,16 @@
+<!-- Navigation -->
+<nav class="navigation" role="navigation">
+        <%= link_to "New Post", new_post_path %>
+        <%- if current_user %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, confirm: "Are you sure ?" %>
+            <a href="#">
+              Wellcome to  <% if current_user.role != "null" -%>
+                    <%= current_user.role %>
+                    <% end -%>: <strong><%= current_user.fullname %>
+              </strong></a>
+        <% else %>
+              <%= link_to "Login", new_user_session_path %>
+              <%= link_to "Register", new_user_registration_path %>
+        <% end %>
+</nav>
+<!-- End Navigation -->

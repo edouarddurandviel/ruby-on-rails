@@ -1,0 +1,270 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ /*bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Partials
+@import 'posts';
+
+body {
+  margin: 0;
+  padding: 0px;
+  font-family: sans-serif;
+  height: 100vh;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+  height: 20vh;
+  width: 100%;
+  background-color: rgba(39, 39, 39, 1);
+}
+.header .title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 50%;
+  font-size: 20px;
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+}
+.root{
+  width: 100%;
+  min-height: 70vh;
+}
+.root div{
+  overflow: hidden;
+}
+.main{
+  padding: 0 20px;
+}
+.aside{
+  padding: 0 20px;
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 35px;
+  float: left;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.loader{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  background: url('./../img/giphy.gif') no-repeat center center;
+  background-size: 30px;
+  z-index: 1000;
+  text-indent: -9000px;
+}
+
+.my-list{
+  opacity: 0;
+}
+.Contact-list, .columns, .single-photo, .main{
+  z-index: 0;
+  animation-duration: 400ms;
+  /*animation-name: slidein;*/
+}
+/* turbo link
+.turbolinks-progress-bar{
+    height: 5px !important;
+    background: #fe4c96 !important;
+}*/
+
+
+
+@keyframes slidein {
+
+  from {
+     opacity: 0;
+     transform: translate3d(-20px, 0, 0);
+   }
+
+   50% {
+     opacity: 0.9;
+     transform: translate3d(0, 0, 0);
+   }
+
+   to {
+     opacity: 1;
+     transform: translate3d(0, 0, 0);
+   }
+
+}
+
+/*
+//////////////////////////////////////////////
+main menu
+*/
+.navigation {
+
+  list-style: none;
+  margin: 0;
+  width: 100%;
+
+  background: deepskyblue;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; /* flexible */
+
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end; /* flexible push left */
+}
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+.navigation a:hover {
+  background: darken(deepskyblue, 2%);
+}
+
+.header-link{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+
+/*
+//////////////////////////////////////////////
+flex box
+*/
+.columns{
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.columns .main > h1{
+  text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+}
+.columns .main .s-post{
+  width: 305px;
+    float: left;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    margin: 11px;
+    padding: 10px;
+}
+.columns .main .s-post img{
+  width: 283px;
+  height: auto;
+}
+.columns .main .s-post h1{
+  font-size: 15px;
+  text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+}
+.columns .main .s-post a{
+  display: block;
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  background-color: deepskyblue;
+  color: #fff;
+  padding: 0 10px;
+  margin: 3px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.columns .main .s-post a.orange{
+  background-color: orange;
+}
+.columns .main .s-post a:hover{
+  box-shadow: 1px 1px 1px 1px #ccc;
+}
+.main-summary{
+  float: left;
+}
+.main-summary > h1:first-child{
+  text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+}
+.main{
+  box-sizing: border-box;
+  flex: 2;
+  order: 1;
+}
+.aside{
+  box-sizing: border-box;
+  flex: 1;
+  order: 2;
+}
+
+
+/* @media all and (max-width) : décroissant */
+/* 800px */
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around; /* flexible width auto */
+  }
+}
+/* 600px */
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap; /* flexible width auto wrapped into a single column */
+    padding: 0;
+  }
+  .navigation a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+
+@media all and (max-width: 600px){
+  .aside{ flex: 1; }
+}
+@media all and (max-width: 800px){
+  .main{ flex: 1; order: 2 }
+  .aside{ flex: 1; order: 1 }
+  .footer { order: 3 }
+}

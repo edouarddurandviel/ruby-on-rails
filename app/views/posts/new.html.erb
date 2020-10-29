@@ -1,0 +1,17 @@
+
+<h1>New post</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+<% if current_user; current_user.role == "admin" -%>
+<%= image_tag @post.image.url(:thumb) %>
+    <%= form_for @post, url: posts_path, html: {multipart: true} do |f| %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <br>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      <br>
+      <%= f.submit %>
+    <% end %>
+<% else -%>
+  <div class="alert alert-success">cannot acces to New post panel: only registered Admin users can ! Connect and try again</div>
+<% end -%>

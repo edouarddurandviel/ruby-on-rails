@@ -1,0 +1,13 @@
+<% @post.each do |p| %>
+<div class="s-post">
+  <%= image_tag p.image.url(:small)%>
+  <h1><%= p.description %></h1>
+    <%- if user_signed_in? %>
+      <%= link_to "Edit", edit_post_path(p) %>
+      <%= link_to "Delete post", p, :method => :delete %>
+      <%= link_to "show post", post_path(p), class: "white" %>
+    <% else %>
+      <%= link_to "show post", post_path(p), class: @color %>
+    <% end %>
+</div>
+<% end %>

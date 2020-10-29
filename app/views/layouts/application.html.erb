@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram App</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body>
+
+    <%= render 'layouts/partials/header' %>
+    <%= render 'layouts/partials/navigation' %>
+
+  <!-- Page Content -->
+  <div class="columns">
+      <div class="main ok">
+      
+
+          <% flash.each do |a, b| %>
+            <div class="alert alert-success"><%= b %></div>
+          <% end %>
+        
+
+        <%= yield %>
+
+      </div>
+  </div>
+  <!-- end: Page Content -->
+
+   <!-- <%= render 'layouts/partials/footer' %> -->
+
+  </body>
+</html>

@@ -1,0 +1,51 @@
+
+
+
+<h1>Liste de photographies <%= upFormat(std_name) %></h1>
+<em><%= joinObjects("edouard", upFormat(std_name)) %></em>
+
+<% if @anyPost %>
+    <div class="main-summary">
+
+      <div class="s-post">
+        <h1>First post image</h1>
+            <%= image_tag @firstpost.image.url(:medium) %>
+      </div>
+
+      <div class="s-post">
+        <h1>Firstone Ordered by description</h1>
+            <%= image_tag @descriptionPost.image.url(:medium) %>
+      </div>
+
+      <div class="s-post">
+        <% unless @createat.nil? %>
+        <h1>id is 1 then take</h1>
+          <%= image_tag @createat.image.url(:medium) %>
+        <% end %>
+      </div>
+
+      <div class="s-post">
+        <h1>SQL from id 6</h1>
+          <% @Descfromsqlconnection.each do |row| %>
+            <p><%= row['description'] %></p>
+        <% end %>
+      </div>
+
+    </div>
+
+    <% if @post %>
+      <div class="main-summary">
+        <h1>All posts</h1>
+
+        <% cache [current_user, @post, @color] do %>
+          <%= render 'items/post_items' %>
+          <% end %>
+      <% end %>
+    </div>
+<% else %>
+
+    <div class="white-bordered">
+      <h1>Blog is empty</h1>
+    </div>
+
+<% end %>
