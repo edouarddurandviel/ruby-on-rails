@@ -5,7 +5,7 @@ end
 
 # app/mailers/user_mailer.rb
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'edurand.viel@gmail.com'
 
   def wellcome_mail
     @user = params[:user]
